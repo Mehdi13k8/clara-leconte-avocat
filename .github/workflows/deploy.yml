@@ -40,6 +40,17 @@ jobs:
             ghcr.io/mehdi13k8/clara-leconte-avocat:${{ github.sha }}
             ghcr.io/mehdi13k8/clara-leconte-avocat:latest
 
+      # Azure sitecontainers pull anonymously (same as Palier). A package
+      # created from a private repo stays private until this call.
+      - name: Make the GHCR package public
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api --method PUT \
+            -H "Accept: application/vnd.github+json" \
+            "/user/packages/container/clara-leconte-avocat/visibility" \
+            -f visibility=public
+
   deploy:
     needs: build
     if: ${{ github.event.inputs.build_only != 'true' }}
