@@ -11,6 +11,10 @@ Les autres domaines IONOS redirigent vers celui-ci.
 Un `git push` sur **ce** dépôt déploie Clara. Il ne déclenche ni Palier ni
 le site vitrine Novagentic.
 
+Azure tire l’image GHCR **anonymement**. Après le premier build, rendre le
+package public (une fois) : GitHub → Packages → `clara-leconte-avocat` →
+Package settings → Change visibility → Public. Sans ça le site répond 503.
+
 ## Démarrer
 
 ```bash
