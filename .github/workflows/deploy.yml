@@ -1,0 +1,59 @@
+name: Deploy Clara
+
+# Builds this repo's image and PUTs the `clara` sitecontainer on the shared
+# Novagentic Web App (port 3003). Lives HERE rather than in Novagentic_group
+# so a push to this repo never starts palier or novagentic pipelines.
+# The parent repo only retargets Azure when its `clara/` submodule SHA moves.
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+    inputs:
+      build_only:
+        description: "Build + push the image to GHCR only, without updating the sitecontainer"
+        type: boolean
+        default: false
+
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/mehdi13k8/clara-leconte-avocat:${{ github.sha }}
+            ghcr.io/mehdi13k8/clara-leconte-avocat:latest
+
+  deploy:
+    needs: build
+    if: ${{ github.event.inputs.build_only != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Update clara sitecontainer
+        run: |
+          SUB_ID=$(az account show --query id -o tsv)
+          az rest --method PUT \
+            --url "https://management.azure.com/subscriptions/$SUB_ID/resourceGroups/Novagentic_group/providers/Microsoft.Web/sites/Novagentic/sitecontainers/clara?api-version=2023-12-01" \
+            --body '{"properties":{"image":"ghcr.io/mehdi13k8/clara-leconte-avocat:${{ github.sha }}","isMain":false,"targetPort":3003}}'

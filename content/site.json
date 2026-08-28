@@ -1,0 +1,16 @@
+{
+  "identity": { "name": "Maître Clara Leconte", "shortName": "Clara Leconte", "profession": "Avocate", "bar": "Barreau à confirmer", "city": "Paris", "email": "contact@clara-leconte-avocat.fr", "phone": "À confirmer", "address": "Adresse du cabinet à confirmer", "hours": "Sur rendez-vous, du lundi au vendredi" },
+  "hero": { "eyebrow": "AVOCATE · BARREAU À CONFIRMER", "title": "Défendre vos droits.\nVous accompagner\navec justesse.", "emphasis": "Vous accompagner", "lead": "Dans les moments qui comptent, vous pouvez compter sur une écoute attentive, une parole claire et une défense engagée.", "portraitAlt": "Portrait de Maître Clara Leconte" },
+  "expertises": [
+    { "title": "Responsabilité civile\n& indemnisation des victimes", "description": "Faire reconnaître un préjudice et obtenir une indemnisation juste, avec rigueur et détermination." },
+    { "title": "Droit de la famille\n& droit de l’enfant", "description": "Divorce, résidence des enfants, assistance éducative et protection de l’enfant : une présence humaine à vos côtés." },
+    { "title": "Droit civil\n& commercial", "description": "Contrats, litiges entre professionnels et contentieux commerciaux : protéger vos intérêts avec clarté." }
+  ],
+  "cabinet": { "quote": "Le droit ne se résume pas à un dossier. C’est souvent une histoire, une inquiétude, une décision de vie.", "paragraphs": ["Maître Clara Leconte vous accompagne avec une conviction simple : une défense efficace commence par une compréhension profonde de votre situation.", "Chaque dossier mérite une stratégie adaptée, une information transparente et une disponibilité réelle tout au long de la procédure."] },
+  "method": [
+    { "title": "Écouter", "description": "Comprendre votre situation, vos priorités et ce qui est véritablement en jeu." },
+    { "title": "Éclairer", "description": "Vous donner une lecture claire de vos droits, des options et des prochaines étapes." },
+    { "title": "Agir", "description": "Définir une stratégie et la porter avec constance, à chaque étape." }
+  ],
+  "contact": { "lead": "Décrivez votre demande en quelques mots. Une réponse vous sera apportée dans les meilleurs délais.", "notice": "Les informations transmises sont confidentielles. Ce formulaire ne crée pas de relation avocat-client." }
+}

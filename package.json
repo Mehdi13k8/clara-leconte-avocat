@@ -1,0 +1,7 @@
+{
+  "name": "clara-leconte-avocat",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "nuxt dev", "build": "nuxt build", "generate": "nuxt generate", "preview": "nuxt preview" },
+  "dependencies": { "nuxt": "^4.1.2", "vue": "^3.5.21", "vue-router": "^4.5.1" }
+}
