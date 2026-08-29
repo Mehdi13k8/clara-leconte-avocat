@@ -33,5 +33,6 @@ useHead({
     <SiteHeader />
     <NuxtPage />
     <SiteFooter />
+    <QuickContact />
   </div>
 </template>

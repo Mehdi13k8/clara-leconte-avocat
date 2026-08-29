@@ -1,5 +1,5 @@
 <script setup lang="ts">
-usePageSeo('Honoraires du cabinet', 'Les honoraires de Maître Clara Leconte sont définis par une convention écrite, selon la nature, la complexité et les besoins du dossier.', '/honoraires')
+usePageSeo('Honoraires avocate Marseille', 'Honoraires de Maître Clara Leconte, avocate à Marseille : une convention écrite adaptée à votre dossier. Prenez rendez-vous.', '/honoraires')
 </script>
 
 <template>

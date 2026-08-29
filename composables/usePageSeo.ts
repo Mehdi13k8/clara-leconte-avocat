@@ -9,7 +9,14 @@ export const usePageSeo = (title: string, description: string, path: string) => 
     ogUrl: canonical,
     ogImage: 'https://claraleconteavocat.com/images/hero-colonnes.webp',
     twitterCard: 'summary_large_image',
+    ogImageAlt: 'Colonnes d’un palais de justice',
+    twitterTitle: `${title} · Clara Leconte Avocate`,
+    twitterDescription: description,
+    twitterImage: 'https://claraleconteavocat.com/images/hero-colonnes.webp',
     robots: 'index, follow'
   })
-  useHead({ link: [{ rel: 'canonical', href: canonical }] })
+  useHead({ link: [
+    { rel: 'canonical', href: canonical },
+    { rel: 'alternate', hreflang: 'fr', href: canonical }
+  ] })
 }

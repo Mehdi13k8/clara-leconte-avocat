@@ -10,9 +10,9 @@ usePageSeo('Politique de confidentialité', 'Politique de confidentialité et tr
       <h2>Responsable du traitement</h2>
       <p>{{ site.identity.name }} est responsable des données que vous choisissez de transmettre pour contacter le cabinet. Vous pouvez exercer vos droits à l’adresse <a :href="`mailto:${site.identity.email}`">{{ site.identity.email }}</a>.</p>
       <h2>Données traitées et finalité</h2>
-      <p>Le formulaire prépare un e-mail dans votre propre messagerie : le site ne téléverse ni ne stocke votre message. Lorsque vous envoyez cet e-mail, le cabinet traite vos coordonnées et les informations communiquées uniquement pour prendre connaissance de votre demande, vous répondre et, le cas échéant, préparer un rendez-vous.</p>
+      <p>Le formulaire transmet vos nom, coordonnées et message au cabinet afin de prendre connaissance de votre demande, de vous répondre et, le cas échéant, de préparer un rendez-vous. La base légale de ce traitement est votre demande de contact et les mesures précontractuelles qui peuvent en découler. Nous vous invitons à ne pas transmettre de pièces ni d’informations sensibles via ce premier échange.</p>
       <h2>Durée et destinataires</h2>
-      <p>Les informations reçues sont accessibles au cabinet et conservées pendant la durée nécessaire au traitement de la demande, puis conformément aux obligations professionnelles et légales applicables. Elles ne sont ni vendues ni utilisées à des fins de prospection commerciale.</p>
+      <p>Les informations sont accessibles au cabinet et transitent par son prestataire technique d’envoi d’e-mails, Novagentic via Azure Communication Services. À défaut d’ouverture d’un dossier, elles sont conservées pendant trois ans à compter du dernier échange ; en cas d’ouverture d’un dossier, les obligations professionnelles et légales applicables déterminent leur conservation. Elles ne sont ni vendues ni utilisées à des fins de prospection commerciale.</p>
       <h2>Vos droits</h2>
       <p>Vous pouvez demander l’accès, la rectification ou l’effacement de vos données, ainsi que la limitation ou l’opposition au traitement lorsque ces droits sont applicables. Vous pouvez également saisir la CNIL si vous estimez que vos droits ne sont pas respectés.</p>
       <h2>Cookies et ressources externes</h2>

@@ -10,10 +10,10 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
       <div class="home-hero__veil" />
       <div class="shell home-hero__inner">
         <p class="kicker kicker--light">{{ site.hero.eyebrow }}</p>
-        <h1>Défendre vos droits<br>avec rigueur,<br><em>vous accompagner</em><br>avec humanité.</h1>
+        <h1>Avocate à Marseille.<br>Défendre vos droits<br>avec rigueur,<br><em>vous accompagner</em><br>avec humanité.</h1>
         <p class="home-hero__lead">{{ site.hero.lead }}</p>
         <div class="button-row">
-          <NuxtLink class="button button--brass" to="/contact">Prendre rendez-vous <span aria-hidden="true">→</span></NuxtLink>
+          <NuxtLink class="button button--brass" to="/contact">Demander un rendez-vous <span aria-hidden="true">→</span></NuxtLink>
           <NuxtLink class="text-link text-link--light" to="/domaines-dintervention">Découvrir les domaines</NuxtLink>
         </div>
       </div>
@@ -47,7 +47,7 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
     </section>
 
     <figure class="courtroom-break">
-      <img src="/images/salle-audience.webp" alt="Salle d’audience baignée de lumière" width="455" height="256" loading="lazy">
+      <img src="/images/hall-marbre.jpg" alt="Hall de palais de justice en marbre" width="1600" height="1040" loading="lazy">
       <figcaption>Conseil · Négociation · Contentieux</figcaption>
     </figure>
 
@@ -62,6 +62,11 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
           <h2>Maître<br>Clara Leconte</h2>
           <p v-for="paragraph in site.cabinet.paragraphs" :key="paragraph">{{ paragraph }}</p>
           <blockquote>«&nbsp;{{ site.cabinet.oath }}&nbsp;»<cite>Serment d’avocat</cite></blockquote>
+          <dl class="cabinet-facts" aria-label="Repères du cabinet">
+            <div><dt>03</dt><dd>domaines d’intervention</dd></div>
+            <div><dt>01</dt><dd>interlocutrice dédiée</dd></div>
+            <div><dt>13 006</dt><dd>Marseille</dd></div>
+          </dl>
           <NuxtLink class="text-link" to="/cabinet">Découvrir le cabinet</NuxtLink>
         </div>
       </div>

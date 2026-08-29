@@ -24,7 +24,7 @@ const active = (to: string) => route.path === to || (to === '/domaines-dinterven
 
       <nav class="desktop-nav" aria-label="Navigation principale">
         <NuxtLink v-for="item in nav" :key="item.to" :to="item.to" :aria-current="active(item.to) ? 'page' : undefined">{{ item.label }}</NuxtLink>
-        <NuxtLink class="button button--ink button--small" to="/contact">Prendre rendez-vous</NuxtLink>
+        <NuxtLink class="button button--ink button--small" to="/contact">Demander un rendez-vous</NuxtLink>
       </nav>
 
       <button class="menu-toggle" type="button" :aria-expanded="open" aria-controls="mobile-navigation" @click="open = !open">

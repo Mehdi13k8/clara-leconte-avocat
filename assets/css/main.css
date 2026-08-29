@@ -332,3 +332,35 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+.cabinet-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 34px 0 28px; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cabinet-facts div { min-width: 0; }
+.cabinet-facts dt { color: #87632d; font-family: var(--serif); font-size: 1.7rem; font-weight: 600; line-height: 1; }
+.cabinet-facts dd { margin: 6px 0 0; color: var(--muted); font-size: .7rem; line-height: 1.35; }
+.quick-contact { position: fixed; z-index: 80; right: 22px; bottom: 22px; display: flex; align-items: stretch; box-shadow: 0 14px 38px rgb(18 27 36 / 20%); }
+.quick-contact a { display: flex; flex-direction: column; justify-content: center; padding: 11px 17px; transition: background 160ms ease, color 160ms ease; }
+.quick-contact__call { background: var(--white); border: 1px solid var(--line); color: var(--ink); font-size: .69rem; line-height: 1.35; }
+.quick-contact__call span { color: #765829; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+.quick-contact__call strong { margin-top: 2px; font-size: .78rem; font-weight: 500; }
+.quick-contact__appointment { gap: 4px; background: var(--ink); color: var(--paper); font-size: .72rem; letter-spacing: .04em; }
+.quick-contact__appointment:hover { background: #87632d; }
+@media (max-width: 620px) {
+  body { padding-bottom: 65px; }
+  .cabinet-facts { gap: 10px; }
+  .cabinet-facts dt { font-size: 1.35rem; }
+  .cabinet-facts dd { font-size: .62rem; }
+  .quick-contact { right: 0; bottom: 0; left: 0; box-shadow: 0 -8px 24px rgb(18 27 36 / 16%); }
+  .quick-contact a { flex: 1; align-items: center; padding: 10px 8px; }
+  .quick-contact__call { border-width: 1px 0 0; }
+}
+
+.honeypot { position: absolute; overflow: hidden; width: 1px; height: 1px; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.form-status { margin: 0; font-size: .8rem; line-height: 1.5; }
+.form-status--success { color: #315e46; }
+.form-status--error { color: #9b382d; }
+.contact-form .button:disabled { cursor: wait; opacity: .72; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #b4853e;
+  outline-offset: 3px;
+}
