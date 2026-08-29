@@ -22,5 +22,7 @@ npm install
 npm run dev
 ```
 
-Le portrait est dans `public/images/cleconte_profil.jpeg`. Textes et
-coordonnées (barreau, téléphone, adresse — encore à confirmer) : `content/site.json`.
+Les images du site sont dans `public/images/`. Les textes et coordonnées
+professionnelles centralisés dans `content/site.json` ont été alignés sur
+l’annuaire 2026 du Barreau de Marseille ; les changements futurs doivent être
+répercutés dans ce fichier avant publication.

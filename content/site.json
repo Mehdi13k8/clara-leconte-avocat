@@ -1,16 +1,68 @@
 {
-  "identity": { "name": "Maître Clara Leconte", "shortName": "Clara Leconte", "profession": "Avocate", "bar": "Barreau à confirmer", "city": "Paris", "email": "contact@clara-leconte-avocat.fr", "phone": "À confirmer", "address": "Adresse du cabinet à confirmer", "hours": "Sur rendez-vous, du lundi au vendredi" },
-  "hero": { "eyebrow": "AVOCATE · BARREAU À CONFIRMER", "title": "Défendre vos droits.\nVous accompagner\navec justesse.", "emphasis": "Vous accompagner", "lead": "Dans les moments qui comptent, vous pouvez compter sur une écoute attentive, une parole claire et une défense engagée.", "portraitAlt": "Portrait de Maître Clara Leconte" },
+  "identity": {
+    "name": "Maître Clara Leconte",
+    "shortName": "Clara Leconte",
+    "profession": "Avocate",
+    "bar": "Barreau de Marseille",
+    "oathDate": "12 janvier 2026",
+    "city": "Marseille",
+    "email": "c.leconte@avocatia.com",
+    "phone": "06 27 63 19 12",
+    "phoneHref": "+33627631912",
+    "address": "23–25 rue Edmond Rostand",
+    "postalCity": "13006 Marseille",
+    "hours": "Sur rendez-vous, du lundi au vendredi"
+  },
+  "hero": {
+    "eyebrow": "Avocate au Barreau de Marseille",
+    "title": "Défendre vos droits avec rigueur, vous accompagner avec humanité.",
+    "lead": "Le cabinet accompagne particuliers et professionnels en responsabilité civile, droit de la famille et droit des contrats. Chaque situation est étudiée avec précision, expliquée avec clarté et défendue avec constance.",
+    "portraitAlt": "Portrait professionnel de Maître Clara Leconte"
+  },
   "expertises": [
-    { "title": "Responsabilité civile\n& indemnisation des victimes", "description": "Faire reconnaître un préjudice et obtenir une indemnisation juste, avec rigueur et détermination." },
-    { "title": "Droit de la famille\n& droit de l’enfant", "description": "Divorce, résidence des enfants, assistance éducative et protection de l’enfant : une présence humaine à vos côtés." },
-    { "title": "Droit civil\n& commercial", "description": "Contrats, litiges entre professionnels et contentieux commerciaux : protéger vos intérêts avec clarté." }
+    {
+      "slug": "responsabilite-civile",
+      "number": "I.",
+      "shortTitle": "Responsabilité civile",
+      "title": "Responsabilité civile & indemnisation des victimes",
+      "intro": "Obtenir la juste réparation de vos préjudices, face aux assureurs comme devant les juridictions.",
+      "lead": "Le cabinet vous accompagne à chaque étape, de la constitution du dossier jusqu’à l’indemnisation.",
+      "points": ["Accidents de la route et de la vie", "Préjudices corporels et expertises médicales", "Négociation avec les assureurs", "Contentieux de l’indemnisation"],
+      "process": ["Évaluation de votre situation, du contexte de l’accident ou du préjudice, et des pièces déjà disponibles.", "Présentation des options possibles, de l’expertise médicale si elle est nécessaire et des étapes prévisibles.", "Négociation avec l’assureur ou représentation devant la juridiction compétente, avec un suivi régulier."]
+    },
+    {
+      "slug": "droit-famille",
+      "number": "II.",
+      "shortTitle": "Droit de la famille",
+      "title": "Droit de la famille & droit de l’enfant",
+      "intro": "Protéger ce qui compte le plus, dans les moments où l’équilibre familial est fragilisé.",
+      "lead": "Le cabinet accompagne parents et enfants avec la fermeté nécessaire et l’écoute que ces situations demandent.",
+      "points": ["Divorce et séparation", "Résidence de l’enfant et autorité parentale", "Assistance éducative", "Protection de l’enfant"],
+      "process": ["Évaluation de votre situation familiale, des enjeux pour les enfants et des pièces déjà disponibles.", "Présentation des voies amiables ou contentieuses possibles et des étapes prévisibles pour votre dossier.", "Accompagnement dans les échanges et représentation devant le juge aux affaires familiales, avec un suivi régulier."]
+    },
+    {
+      "slug": "droit-civil-commercial",
+      "number": "III.",
+      "shortTitle": "Droit civil & commercial",
+      "title": "Droit civil & commercial",
+      "intro": "Sécuriser vos contrats et défendre vos intérêts dans les litiges entre particuliers ou professionnels.",
+      "lead": "Le cabinet intervient en conseil comme en contentieux pour apporter une réponse lisible aux situations contractuelles complexes.",
+      "points": ["Droit des contrats", "Litiges entre particuliers ou professionnels", "Contentieux des contrats commerciaux", "Recouvrement et inexécution"],
+      "process": ["Évaluation de votre situation, du contrat ou du litige, et des pièces déjà disponibles.", "Présentation des options possibles, de leurs implications et des étapes prévisibles pour votre dossier.", "Négociation ou représentation devant la juridiction compétente, avec un point d’avancement régulier."]
+    }
   ],
-  "cabinet": { "quote": "Le droit ne se résume pas à un dossier. C’est souvent une histoire, une inquiétude, une décision de vie.", "paragraphs": ["Maître Clara Leconte vous accompagne avec une conviction simple : une défense efficace commence par une compréhension profonde de votre situation.", "Chaque dossier mérite une stratégie adaptée, une information transparente et une disponibilité réelle tout au long de la procédure."] },
+  "cabinet": {
+    "quote": "Une défense efficace commence par une compréhension claire de votre situation.",
+    "paragraphs": ["Maître Clara Leconte intervient aux côtés des victimes, des familles, des particuliers et des professionnels, du conseil à la représentation en justice.", "Chaque dossier fait l’objet d’une analyse rigoureuse et d’une stratégie expliquée en toute transparence. Vous restez informé des choix possibles et des prochaines étapes."],
+    "oath": "Je jure, comme avocat, d’exercer mes fonctions avec dignité, conscience, indépendance, probité et humanité."
+  },
   "method": [
-    { "title": "Écouter", "description": "Comprendre votre situation, vos priorités et ce qui est véritablement en jeu." },
-    { "title": "Éclairer", "description": "Vous donner une lecture claire de vos droits, des options et des prochaines étapes." },
-    { "title": "Agir", "description": "Définir une stratégie et la porter avec constance, à chaque étape." }
+    {"title": "Écoute", "description": "Un premier échange pour comprendre votre situation dans sa globalité, juridique autant qu’humaine, avant toute stratégie."},
+    {"title": "Rigueur", "description": "Chaque dossier est étudié avec précision : analyse des pièces, anticipation des arguments et respect des délais."},
+    {"title": "Transparence", "description": "Les modalités d’intervention sont posées dès le départ et vous êtes informé à chaque étape du dossier."}
   ],
-  "contact": { "lead": "Décrivez votre demande en quelques mots. Une réponse vous sera apportée dans les meilleurs délais.", "notice": "Les informations transmises sont confidentielles. Ce formulaire ne crée pas de relation avocat-client." }
+  "contact": {
+    "lead": "Présentez votre demande en quelques lignes. Pour préserver la confidentialité des échanges, évitez de transmettre des pièces sensibles avant le premier contact.",
+    "notice": "Le secret professionnel couvre les échanges avec l’avocat. L’envoi d’un message ne vaut pas acceptation du dossier."
+  }
 }
