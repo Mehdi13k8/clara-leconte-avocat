@@ -6,14 +6,26 @@ const others = computed(() => site.expertises.filter(item => item.slug !== props
 
 <template>
   <main id="contenu">
-    <PageIntro :eyebrow="expertise.shortTitle" :number="expertise.number" :title="expertise.title" :intro="expertise.intro" />
+    <PageIntro
+      :eyebrow="expertise.shortTitle"
+      :number="expertise.number"
+      :title="expertise.title"
+      :intro="expertise.intro"
+      :crumbs="[
+        { label: 'Accueil', to: '/' },
+        { label: 'Domaines d’intervention', to: '/domaines-dintervention' },
+        { label: expertise.shortTitle }
+      ]"
+    />
+
+    <ImageBand :src="expertise.image" :alt="expertise.imageAlt" />
 
     <section class="editorial-section">
       <div class="shell expertise-overview">
         <div class="expertise-statement">
           <p class="kicker">L’intervention du cabinet</p>
           <h2>{{ expertise.lead }}</h2>
-          <p>À Marseille, Maître Clara Leconte vous aide à qualifier la situation, à mesurer les options disponibles et à choisir une démarche adaptée à vos priorités.</p>
+          <p>À Marseille, Maître Clara Leconte vous aide à qualifier la situation, à mesurer les options disponibles et à choisir une démarche adaptée à vos priorités, devant le tribunal judiciaire de Marseille et, selon la procédure, la cour d’appel d’Aix-en-Provence.</p>
         </div>
         <div class="scope-list">
           <p class="list-title">Le cabinet intervient notamment pour</p>

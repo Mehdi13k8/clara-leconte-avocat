@@ -21,7 +21,8 @@ useHead({
       },
       areaServed: 'Marseille',
       priceRange: 'Honoraires sur convention',
-      openingHours: 'Mo-Fr'
+      openingHours: 'Mo-Fr',
+      knowsLanguage: 'fr'
     })
   }]
 })

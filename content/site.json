@@ -11,12 +11,14 @@
     "phoneHref": "+33627631912",
     "address": "23–25 rue Edmond Rostand",
     "postalCity": "13006 Marseille",
-    "hours": "Sur rendez-vous, du lundi au vendredi"
+    "hours": "Sur rendez-vous, du lundi au vendredi",
+    "replyDelay": "48 heures ouvrées"
   },
   "hero": {
-    "eyebrow": "Avocate au Barreau de Marseille",
-    "title": "Défendre vos droits avec rigueur, vous accompagner avec humanité.",
-    "lead": "Le cabinet accompagne particuliers et professionnels en responsabilité civile, droit de la famille et droit des contrats. Chaque situation est étudiée avec précision, expliquée avec clarté et défendue avec constance.",
+    "badge": "Barreau de Marseille — Provence",
+    "title": "Votre avocate à Marseille pour",
+    "titleAccent": "défendre vos droits",
+    "lead": "Maître Clara Leconte vous accompagne avec rigueur et humanité en responsabilité civile, droit de la famille et droit des contrats. Chaque situation est étudiée avec précision, expliquée avec clarté et défendue avec constance.",
     "portraitAlt": "Portrait professionnel de Maître Clara Leconte"
   },
   "expertises": [
@@ -27,6 +29,8 @@
       "title": "Responsabilité civile & indemnisation des victimes",
       "intro": "Obtenir la juste réparation de vos préjudices, face aux assureurs comme devant les juridictions.",
       "lead": "Le cabinet vous accompagne à chaque étape, de la constitution du dossier jusqu’à l’indemnisation.",
+      "image": "/images/avocats-dossier.webp",
+      "imageAlt": "Étude d’un dossier d’indemnisation",
       "points": ["Accidents de la route et de la vie", "Préjudices corporels et expertises médicales", "Négociation avec les assureurs", "Contentieux de l’indemnisation"],
       "process": ["Évaluation de votre situation, du contexte de l’accident ou du préjudice, et des pièces déjà disponibles.", "Présentation des options possibles, de l’expertise médicale si elle est nécessaire et des étapes prévisibles.", "Négociation avec l’assureur ou représentation devant la juridiction compétente, avec un suivi régulier."]
     },
@@ -37,6 +41,8 @@
       "title": "Droit de la famille & droit de l’enfant",
       "intro": "Protéger ce qui compte le plus, dans les moments où l’équilibre familial est fragilisé.",
       "lead": "Le cabinet accompagne parents et enfants avec la fermeté nécessaire et l’écoute que ces situations demandent.",
+      "image": "/images/hall-marbre.webp",
+      "imageAlt": "Hall de palais de justice, cadre des audiences familiales",
       "points": ["Divorce et séparation", "Résidence de l’enfant et autorité parentale", "Assistance éducative", "Protection de l’enfant"],
       "process": ["Évaluation de votre situation familiale, des enjeux pour les enfants et des pièces déjà disponibles.", "Présentation des voies amiables ou contentieuses possibles et des étapes prévisibles pour votre dossier.", "Accompagnement dans les échanges et représentation devant le juge aux affaires familiales, avec un suivi régulier."]
     },
@@ -47,22 +53,49 @@
       "title": "Droit civil & commercial",
       "intro": "Sécuriser vos contrats et défendre vos intérêts dans les litiges entre particuliers ou professionnels.",
       "lead": "Le cabinet intervient en conseil comme en contentieux pour apporter une réponse lisible aux situations contractuelles complexes.",
+      "image": "/images/colonnade-marbre.webp",
+      "imageAlt": "Colonnade de palais de justice à Marseille",
       "points": ["Droit des contrats", "Litiges entre particuliers ou professionnels", "Contentieux des contrats commerciaux", "Recouvrement et inexécution"],
       "process": ["Évaluation de votre situation, du contrat ou du litige, et des pièces déjà disponibles.", "Présentation des options possibles, de leurs implications et des étapes prévisibles pour votre dossier.", "Négociation ou représentation devant la juridiction compétente, avec un point d’avancement régulier."]
     }
   ],
   "cabinet": {
     "quote": "Une défense efficace commence par une compréhension claire de votre situation.",
-    "paragraphs": ["Maître Clara Leconte intervient aux côtés des victimes, des familles, des particuliers et des professionnels, du conseil à la représentation en justice.", "Chaque dossier fait l’objet d’une analyse rigoureuse et d’une stratégie expliquée en toute transparence. Vous restez informé des choix possibles et des prochaines étapes."],
-    "oath": "Je jure, comme avocat, d’exercer mes fonctions avec dignité, conscience, indépendance, probité et humanité."
+    "paragraphs": [
+      "Maître Clara Leconte intervient aux côtés des victimes, des familles, des particuliers et des professionnels, du conseil à la représentation en justice.",
+      "Chaque dossier fait l’objet d’une analyse rigoureuse et d’une stratégie expliquée en toute transparence. Vous restez informé des choix possibles et des prochaines étapes."
+    ],
+    "oath": "Je jure, comme avocat, d’exercer mes fonctions avec dignité, conscience, indépendance, probité et humanité.",
+    "milestones": [
+      { "date": "12 janvier 2026", "title": "Prestation de serment", "text": "Inscription au Barreau de Marseille et entrée dans la profession d’avocat." },
+      { "date": "Marseille", "title": "Cabinet rue Edmond Rostand", "text": "Accueil sur rendez-vous au 23–25 rue Edmond Rostand, dans le 6e arrondissement." },
+      { "date": "Juridictions", "title": "Ancrage local", "text": "Intervention notamment devant le tribunal judiciaire de Marseille et, selon la procédure, la cour d’appel d’Aix-en-Provence." }
+    ]
   },
-  "method": [
-    {"title": "Écoute", "description": "Un premier échange pour comprendre votre situation dans sa globalité, juridique autant qu’humaine, avant toute stratégie."},
-    {"title": "Rigueur", "description": "Chaque dossier est étudié avec précision : analyse des pièces, anticipation des arguments et respect des délais."},
-    {"title": "Transparence", "description": "Les modalités d’intervention sont posées dès le départ et vous êtes informé à chaque étape du dossier."}
+  "stats": [
+    { "value": "48 h", "label": "Délai de réponse visé" },
+    { "value": "3", "label": "Domaines de droit" },
+    { "value": "1", "label": "Interlocutrice dédiée" }
   ],
+  "method": [
+    { "title": "Écoute", "description": "Un premier échange pour comprendre votre situation dans sa globalité, juridique autant qu’humaine, avant toute stratégie." },
+    { "title": "Rigueur", "description": "Chaque dossier est étudié avec précision : analyse des pièces, anticipation des arguments et respect des délais." },
+    { "title": "Transparence", "description": "Les honoraires sont posés par convention dès le premier rendez-vous, et vous êtes informé à chaque étape du dossier." }
+  ],
+  "commitments": [
+    { "title": "Un interlocuteur unique", "text": "Vous échangez directement avec Maître Leconte, de la première prise de contact jusqu’à la clôture du dossier." },
+    { "title": "Une réponse sous 48 h", "text": "Chaque demande reçue par le cabinet fait l’objet d’un retour sous quarante-huit heures ouvrées." },
+    { "title": "Un cadre écrit", "text": "Aucune intervention n’est engagée sans une convention d’honoraires claire, signée en connaissance de cause." }
+  ],
+  "fees": {
+    "modes": [
+      { "title": "Honoraires au forfait", "text": "Un montant global peut être convenu pour une mission définie dont les contours sont suffisamment prévisibles, comme certaines procédures amiables ou la rédaction d’actes." },
+      { "title": "Honoraires au temps passé", "text": "Un taux horaire peut s’appliquer au temps effectivement consacré lorsque l’ampleur du dossier ne peut être déterminée à l’avance. Un suivi du temps passé peut vous être communiqué." },
+      { "title": "Honoraires de résultat", "text": "En complément de l’honoraire de base, un honoraire complémentaire peut être prévu selon le résultat obtenu, dans les conditions fixées par la convention d’honoraires." }
+    ]
+  },
   "contact": {
-    "lead": "Présentez votre demande en quelques lignes. Pour préserver la confidentialité des échanges, évitez de transmettre des pièces sensibles avant le premier contact.",
+    "lead": "Présentez votre demande en quelques lignes. Une réponse vous est apportée sous 48 heures ouvrées. Pour préserver la confidentialité des échanges, évitez de transmettre des pièces sensibles avant le premier contact.",
     "notice": "Le secret professionnel couvre les échanges avec l’avocat. L’envoi d’un message ne vaut pas acceptation du dossier."
   }
 }

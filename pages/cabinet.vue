@@ -18,9 +18,34 @@ usePageSeo('Votre avocate à Marseille', 'Découvrez l’approche de Maître Cla
           <p v-for="paragraph in site.cabinet.paragraphs" :key="paragraph">{{ paragraph }}</p>
           <p>Inscrite au Barreau de Marseille depuis sa prestation de serment du {{ site.identity.oathDate }}, Maître Leconte exerce depuis son cabinet situé rue Edmond Rostand.</p>
           <blockquote>«&nbsp;{{ site.cabinet.oath }}&nbsp;»<cite>Serment d’avocat</cite></blockquote>
+          <dl class="cabinet-facts" aria-label="Repères du cabinet">
+            <div v-for="stat in site.stats" :key="stat.label">
+              <dt>{{ stat.value }}</dt>
+              <dd>{{ stat.label }}</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
+
+    <ImageBand src="/images/avocats-bureau.webp" alt="Entretien au cabinet d’avocat" caption="Écoute · Conseil · Défense" />
+
+    <section class="milestones-section">
+      <div class="shell">
+        <div class="section-heading section-heading--split">
+          <div><p class="kicker">Parcours</p><h2>Des repères simples, une pratique ancrée à Marseille.</h2></div>
+          <p>Le cabinet s’appuie sur une inscription récente au barreau et sur un exercice de proximité, au service des dossiers qui lui sont confiés.</p>
+        </div>
+        <ol class="milestones">
+          <li v-for="item in site.cabinet.milestones" :key="item.title">
+            <span>{{ item.date }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <section class="method-section method-section--paper">
       <div class="shell">
         <div class="section-heading section-heading--split">

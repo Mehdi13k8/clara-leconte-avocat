@@ -1,5 +1,6 @@
 <script setup lang="ts">
-usePageSeo('Honoraires avocate Marseille', 'Honoraires de Maître Clara Leconte, avocate à Marseille : une convention écrite adaptée à votre dossier. Prenez rendez-vous.', '/honoraires')
+const site = useSiteContent()
+usePageSeo('Honoraires avocate Marseille', 'Honoraires de Maître Clara Leconte, avocate à Marseille : forfait, temps passé ou résultat, toujours encadrés par une convention écrite.', '/honoraires')
 </script>
 
 <template>
@@ -15,15 +16,24 @@ usePageSeo('Honoraires avocate Marseille', 'Honoraires de Maître Clara Leconte,
       </div>
     </section>
     <section class="fee-options">
-      <div class="shell fee-options__grid">
-        <article><span>01</span><h2>Honoraires au forfait</h2><p>Un montant global peut être convenu pour une mission définie dont les contours sont suffisamment prévisibles.</p></article>
-        <article><span>02</span><h2>Honoraires au temps passé</h2><p>Un taux horaire peut s’appliquer au temps effectivement consacré lorsque l’ampleur du dossier ne peut être déterminée à l’avance.</p></article>
+      <div class="shell fee-options__grid fee-options__grid--three">
+        <article v-for="(mode, index) in site.fees.modes" :key="mode.title">
+          <span>0{{ index + 1 }}</span>
+          <h2>{{ mode.title }}</h2>
+          <p>{{ mode.text }}</p>
+        </article>
       </div>
     </section>
     <section class="legal-aid-note">
       <div class="shell legal-aid-note__inner">
-        <p class="kicker">Aide juridictionnelle & protection juridique</p>
-        <p>Selon votre situation et la nature du dossier, une prise en charge peut être envisagée au titre de l’aide juridictionnelle ou de votre contrat de protection juridique. Ces possibilités et les conditions d’intervention du cabinet sont examinées lors du premier échange.</p>
+        <p class="kicker">Aide juridictionnelle</p>
+        <p>Selon votre situation et la nature du dossier, une prise en charge totale ou partielle peut être envisagée au titre de l’aide juridictionnelle. Ce point est examiné lors du premier échange, au regard des conditions de ressources applicables.</p>
+      </div>
+    </section>
+    <section class="legal-aid-note legal-aid-note--alt">
+      <div class="shell legal-aid-note__inner">
+        <p class="kicker">Protection juridique</p>
+        <p>Un contrat d’assurance habitation, automobile ou bancaire comporte parfois une garantie de protection juridique, susceptible de couvrir tout ou partie des honoraires. Avant d’ouvrir le dossier, le cabinet vous invite à vérifier cette garantie auprès de votre assureur.</p>
       </div>
     </section>
     <ContactBand />

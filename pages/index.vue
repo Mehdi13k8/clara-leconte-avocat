@@ -6,15 +6,18 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
 <template>
   <main id="contenu">
     <section class="home-hero">
-      <img class="home-hero__image" src="/images/hero-colonnes.webp" alt="Architecture judiciaire à colonnade" width="682" height="512" fetchpriority="high">
+      <img class="home-hero__image" src="/images/hero-colonnes.webp" alt="Architecture judiciaire à colonnade, Marseille" width="682" height="512" fetchpriority="high">
       <div class="home-hero__veil" />
       <div class="shell home-hero__inner">
-        <p class="kicker kicker--light">{{ site.hero.eyebrow }}</p>
-        <h1>Avocate à Marseille.<br>Défendre vos droits<br>avec rigueur,<br><em>vous accompagner</em><br>avec humanité.</h1>
+        <p class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M6 0l1.5 4.1H12L8.3 6.7 9.7 11 6 8.4 2.3 11l1.4-4.3L0 4.1h4.5z"/></svg>
+          {{ site.hero.badge }}
+        </p>
+        <h1>{{ site.hero.title }}<br><em>{{ site.hero.titleAccent }}</em></h1>
         <p class="home-hero__lead">{{ site.hero.lead }}</p>
         <div class="button-row">
-          <NuxtLink class="button button--brass" to="/contact">Demander un rendez-vous <span aria-hidden="true">→</span></NuxtLink>
-          <NuxtLink class="text-link text-link--light" to="/domaines-dintervention">Découvrir les domaines</NuxtLink>
+          <NuxtLink class="button button--brass" to="/contact">Prendre rendez-vous</NuxtLink>
+          <NuxtLink class="button button--ghost" to="/domaines-dintervention">Nos expertises</NuxtLink>
         </div>
       </div>
       <a class="scroll-cue" href="#domaines">Découvrir <span aria-hidden="true">↓</span></a>
@@ -23,7 +26,7 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
     <section class="trust-strip" aria-label="Informations essentielles">
       <div class="shell trust-strip__grid">
         <div><span>01</span><p><strong>{{ site.identity.bar }}</strong><br>Cabinet établi à Marseille</p></div>
-        <div><span>02</span><p><strong>Échanges confidentiels</strong><br>Une écoute directe et personnelle</p></div>
+        <div><span>02</span><p><strong>Réponse sous {{ site.identity.replyDelay }}</strong><br>Un premier retour, confidentiel</p></div>
         <div><span>03</span><p><strong>Honoraires encadrés</strong><br>Une convention avant toute intervention</p></div>
       </div>
     </section>
@@ -31,25 +34,29 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
     <section id="domaines" class="home-domains">
       <div class="shell">
         <div class="section-heading section-heading--split section-heading--light">
-          <div><p class="kicker kicker--light">Domaines d’intervention</p><h2>Trois matières,<br>une même exigence<br>de précision.</h2></div>
-          <p>Un accompagnement construit autour des moments où vos droits, votre famille ou votre activité ont besoin d’être défendus.</p>
+          <div>
+            <p class="kicker kicker--light">Domaines d’expertise</p>
+            <h2>Trois matières,<br>une même exigence<br>de précision.</h2>
+          </div>
+          <p>Un accompagnement juridique complet pour protéger vos intérêts en responsabilité civile, droit de la famille et droit des contrats.</p>
         </div>
-        <div class="domain-grid">
-          <article v-for="item in site.expertises" :key="item.slug">
-            <span class="roman">{{ item.number }}</span>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.intro }}</p>
-            <NuxtLink :to="`/${item.slug}`">Comprendre l’accompagnement <span aria-hidden="true">→</span></NuxtLink>
-          </article>
+        <div class="expertise-cards">
+          <NuxtLink v-for="item in site.expertises" :key="item.slug" class="expertise-card" :to="`/${item.slug}`">
+            <img :src="item.image" :alt="item.imageAlt" width="1800" height="1170" loading="lazy">
+            <span class="expertise-card__veil" />
+            <span class="expertise-card__body">
+              <span class="roman">{{ item.number }}</span>
+              <h3>{{ item.shortTitle }}</h3>
+              <p>{{ item.intro }}</p>
+              <em>En savoir plus</em>
+            </span>
+          </NuxtLink>
         </div>
         <p class="domain-note">Au-delà de ces matières, le cabinet reste à l’écoute de toute situation relevant du droit civil au sens large. <NuxtLink to="/contact">Exposez votre demande</NuxtLink> pour un premier échange.</p>
       </div>
     </section>
 
-    <figure class="courtroom-break">
-      <img src="/images/hall-marbre.jpg" alt="Hall de palais de justice en marbre" width="1600" height="1040" loading="lazy">
-      <figcaption>Conseil · Négociation · Contentieux</figcaption>
-    </figure>
+    <ImageBand src="/images/justice-fronton.webp" alt="Fronton d’un palais de justice" caption="Conseil · Négociation · Contentieux" />
 
     <section class="portrait-section">
       <div class="shell portrait-section__grid">
@@ -58,14 +65,15 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
           <span>Barreau de Marseille</span>
         </div>
         <div class="portrait-copy">
-          <p class="kicker">Le cabinet</p>
+          <p class="kicker">Votre avocate à Marseille</p>
           <h2>Maître<br>Clara Leconte</h2>
           <p v-for="paragraph in site.cabinet.paragraphs" :key="paragraph">{{ paragraph }}</p>
           <blockquote>«&nbsp;{{ site.cabinet.oath }}&nbsp;»<cite>Serment d’avocat</cite></blockquote>
           <dl class="cabinet-facts" aria-label="Repères du cabinet">
-            <div><dt>03</dt><dd>domaines d’intervention</dd></div>
-            <div><dt>01</dt><dd>interlocutrice dédiée</dd></div>
-            <div><dt>13 006</dt><dd>Marseille</dd></div>
+            <div v-for="stat in site.stats" :key="stat.label">
+              <dt>{{ stat.value }}</dt>
+              <dd>{{ stat.label }}</dd>
+            </div>
           </dl>
           <NuxtLink class="text-link" to="/cabinet">Découvrir le cabinet</NuxtLink>
         </div>
@@ -78,6 +86,21 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
         <div class="method-grid">
           <article v-for="(item, index) in site.method" :key="item.title">
             <span>0{{ index + 1 }}</span><h3>{{ item.title }}</h3><p>{{ item.description }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="commitments-section">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="kicker">Ce que vous pouvez attendre</p>
+          <h2>Des engagements tenus dès le premier échange.</h2>
+        </div>
+        <div class="commitments-grid">
+          <article v-for="item in site.commitments" :key="item.title">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
           </article>
         </div>
       </div>

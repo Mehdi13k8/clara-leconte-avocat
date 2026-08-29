@@ -6,16 +6,17 @@ usePageSeo('Domaines d’intervention à Marseille', 'Responsabilité civile, dr
 <template>
   <main id="contenu">
     <PageIntro eyebrow="Domaines d’intervention" title="Des compétences ciblées, une défense sur mesure." intro="Le cabinet intervient dans trois matières de droit privé, avec la même méthode : comprendre précisément les faits, rendre les options lisibles et construire une stratégie adaptée." />
+    <ImageBand src="/images/escalier-marbre.webp" alt="Escalier monumental d’un palais de justice" />
     <section class="practice-index">
-      <div class="shell">
-        <article v-for="item in site.expertises" :key="item.slug" class="practice-row">
+      <div class="shell practice-cards">
+        <article v-for="item in site.expertises" :key="item.slug" class="practice-card">
           <span class="roman">{{ item.number }}</span>
-          <div>
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.intro }}</p>
-          </div>
-          <ul><li v-for="point in item.points" :key="point">{{ point }}</li></ul>
-          <NuxtLink :to="`/${item.slug}`" :aria-label="`En savoir plus — ${item.title}`">↗</NuxtLink>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.intro }}</p>
+          <ul>
+            <li v-for="point in item.points" :key="point">{{ point }}</li>
+          </ul>
+          <NuxtLink :to="`/${item.slug}`">En savoir plus <span aria-hidden="true">→</span></NuxtLink>
         </article>
       </div>
     </section>

@@ -4,9 +4,10 @@ const form = reactive({ name: '', phone: '', email: '', subject: '', message: ''
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const errorMessage = ref('')
 
-usePageSeo('Contacter le cabinet à Marseille', 'Contactez Maître Clara Leconte, avocate au Barreau de Marseille. Cabinet situé 23–25 rue Edmond Rostand, 13006 Marseille.', '/contact')
+usePageSeo('Contacter le cabinet à Marseille', 'Contactez Maître Clara Leconte, avocate au Barreau de Marseille. Réponse sous 48 heures ouvrées. Cabinet situé 23–25 rue Edmond Rostand, 13006 Marseille.', '/contact')
 
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.identity.address}, ${site.identity.postalCity}`)}`
+const mapsEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(`${site.identity.address}, ${site.identity.postalCity}`)}&z=16&output=embed`
 
 const submitForm = async () => {
   status.value = 'sending'
@@ -36,7 +37,7 @@ const submitForm = async () => {
 
 <template>
   <main id="contenu">
-    <PageIntro eyebrow="Contact" title="Exposez votre situation en toute confidentialité." :intro="site.contact.lead" />
+    <PageIntro eyebrow="Contact" title="Exposez votre situation en toute confidentialité, à Marseille." :intro="site.contact.lead" />
     <section class="contact-page">
       <div class="shell contact-page__grid">
         <aside class="contact-details">
@@ -46,11 +47,12 @@ const submitForm = async () => {
             <div><dt>E-mail</dt><dd><a :href="`mailto:${site.identity.email}`">{{ site.identity.email }}</a></dd></div>
             <div><dt>Adresse</dt><dd><a :href="mapsUrl" target="_blank" rel="noopener">{{ site.identity.address }}<br>{{ site.identity.postalCity }}</a></dd></div>
             <div><dt>Accueil</dt><dd>{{ site.identity.hours }}</dd></div>
+            <div><dt>Réponse</dt><dd>Sous {{ site.identity.replyDelay }}</dd></div>
           </dl>
           <p class="confidential-note">{{ site.contact.notice }}</p>
         </aside>
 
-        <form class="contact-form" @submit.prevent="submitForm">
+        <form v-if="status !== 'success'" class="contact-form" @submit.prevent="submitForm">
           <p class="form-intro">Votre demande est transmise directement au cabinet. Pour votre confidentialité, ne joignez aucun document ni information sensible à ce premier message.</p>
           <p class="form-intro">L’envoi de ce formulaire ne vaut ni acceptation du dossier ni confirmation de rendez-vous.</p>
           <div class="honeypot" aria-hidden="true">
@@ -70,14 +72,26 @@ const submitForm = async () => {
           </label>
           <label>Votre message<textarea v-model="form.message" name="message" rows="6" required /></label>
           <label class="consent"><input v-model="form.consent" name="consent" type="checkbox" required><span>Je reconnais avoir pris connaissance de la politique de confidentialité applicable à ma demande. <NuxtLink to="/politique-confidentialite">En savoir plus</NuxtLink>.</span></label>
-          <p v-if="status === 'success'" class="form-status form-status--success" role="status">Votre message a bien été transmis au cabinet. Merci.</p>
-          <p v-else-if="status === 'error'" class="form-status form-status--error" role="alert">{{ errorMessage }}</p>
+          <p v-if="status === 'error'" class="form-status form-status--error" role="alert">{{ errorMessage }}</p>
           <button class="button button--ink" type="submit" :disabled="status === 'sending'">
             <span v-if="status === 'sending'">Envoi en cours…</span>
             <span v-else>Envoyer ma demande <span aria-hidden="true">→</span></span>
           </button>
         </form>
+        <div v-else class="contact-success" role="status">
+          <span />
+          <h2>Votre message a bien été transmis.</h2>
+          <p>Maître Leconte reviendra vers vous sous {{ site.identity.replyDelay }}.</p>
+        </div>
       </div>
+    </section>
+    <section class="contact-map" aria-label="Localisation du cabinet">
+      <iframe
+        title="Carte du cabinet, 23–25 rue Edmond Rostand, Marseille"
+        :src="mapsEmbed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      />
     </section>
   </main>
 </template>
