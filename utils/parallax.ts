@@ -76,6 +76,10 @@ function dropListeners() {
   mediaQuery = null
 }
 
+export function tickParallax() {
+  requestTick()
+}
+
 export function registerParallax(el: HTMLElement, speed = 0.18) {
   if (typeof window === 'undefined') return
 

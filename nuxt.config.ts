@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-08-28',
   devtools: { enabled: process.env.NODE_ENV !== 'production' },
-  css: ['~/assets/css/main.css'],
+  css: ['lenis/dist/lenis.css', '~/assets/css/main.css'],
   runtimeConfig: {
     acsConnectionString: '',
     acsSenderAddress: 'DoNotReply@novagentic.fr',
