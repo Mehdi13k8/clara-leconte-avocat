@@ -6,7 +6,7 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
 <template>
   <main id="contenu">
     <section class="home-hero">
-      <img class="home-hero__image" src="/images/hero-colonnes.webp" alt="Architecture judiciaire à colonnade, Marseille" width="682" height="512" fetchpriority="high">
+      <img v-parallax="0.28" class="home-hero__image" src="/images/hero-colonnes.webp" alt="Architecture judiciaire à colonnade, Marseille" width="682" height="512" fetchpriority="high">
       <div class="home-hero__veil" />
       <div class="shell home-hero__inner">
         <p class="hero-badge">
@@ -42,7 +42,9 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
         </div>
         <div class="expertise-cards">
           <NuxtLink v-for="item in site.expertises" :key="item.slug" class="expertise-card" :to="`/${item.slug}`">
-            <img :src="item.image" :alt="item.imageAlt" width="1800" height="1170" loading="lazy">
+            <span class="expertise-card__media">
+              <img v-parallax="0.14" :src="item.image" :alt="item.imageAlt" width="1800" height="1170" loading="lazy">
+            </span>
             <span class="expertise-card__veil" />
             <span class="expertise-card__body">
               <span class="roman">{{ item.number }}</span>
