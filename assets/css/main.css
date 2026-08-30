@@ -343,6 +343,8 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
 .desktop-nav > a:not(.button):focus-visible::after,
 .nav-dropdown:hover > a::after { right: 0; }
 .nav-dropdown:hover .nav-dropdown__menu { display: flex; }
+.nav-dropdown.nav-dropdown--closed:hover .nav-dropdown__menu,
+.nav-dropdown.nav-dropdown--closed:focus-within .nav-dropdown__menu { display: none; }
 .nav-dropdown__menu a:hover,
 .nav-dropdown__menu a:focus-visible { background: var(--paper); color: #8b672f; }
 .menu-toggle:hover,

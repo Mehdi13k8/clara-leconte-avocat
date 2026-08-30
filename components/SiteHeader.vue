@@ -1,12 +1,26 @@
 <script setup lang="ts">
 const open = ref(false)
 const scrolled = ref(false)
+const hideDropdown = ref(false)
 const route = useRoute()
 const site = useSiteContent()
 
 const overlay = computed(() => route.path === '/' && !scrolled.value)
 
-watch(() => route.fullPath, () => { open.value = false })
+watch(() => route.fullPath, async () => {
+  open.value = false
+  hideDropdown.value = true
+  await nextTick()
+  const active = document.activeElement
+  if (active instanceof HTMLElement && active.closest('.nav-dropdown')) active.blur()
+})
+
+const unlockDropdown = () => { hideDropdown.value = false }
+
+const onDropdownFocusIn = (event: FocusEvent) => {
+  const target = event.target
+  if (target instanceof HTMLElement && target.matches(':focus-visible')) hideDropdown.value = false
+}
 
 const onScroll = () => { scrolled.value = window.scrollY > 20 }
 
@@ -31,7 +45,13 @@ const domainActive = computed(() =>
 
       <nav class="desktop-nav" aria-label="Navigation principale">
         <NuxtLink to="/cabinet" :aria-current="route.path === '/cabinet' ? 'page' : undefined">Le cabinet</NuxtLink>
-        <div class="nav-dropdown">
+        <div
+          class="nav-dropdown"
+          :class="{ 'nav-dropdown--closed': hideDropdown }"
+          @pointerleave="unlockDropdown"
+          @focusin="onDropdownFocusIn"
+          @click.capture="hideDropdown = true"
+        >
           <NuxtLink
             to="/domaines-dintervention"
             :aria-current="domainActive ? 'page' : undefined"
@@ -46,7 +66,6 @@ const domainActive = computed(() =>
               :key="item.slug"
               :to="`/${item.slug}`"
             >{{ item.shortTitle }}</NuxtLink>
-            <NuxtLink to="/domaines-dintervention">Tous les domaines</NuxtLink>
           </div>
         </div>
         <NuxtLink to="/honoraires" :aria-current="route.path === '/honoraires' ? 'page' : undefined">Honoraires</NuxtLink>
