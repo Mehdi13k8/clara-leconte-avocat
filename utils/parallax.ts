@@ -1,5 +1,6 @@
 type ParallaxItem = {
   el: HTMLElement
+  clip: HTMLElement
   speed: number
 }
 
@@ -11,8 +12,14 @@ let reducedMotion = false
 let listening = false
 let mediaQuery: MediaQueryList | null = null
 
+function findClip(el: HTMLElement) {
+  return (el.closest('.home-hero, .image-band, .expertise-card__media, .expertise-card') as HTMLElement)
+    || el.parentElement
+    || el
+}
+
 function mobileFactor() {
-  return window.matchMedia('(max-width: 620px)').matches ? 0.55 : 1
+  return window.matchMedia('(max-width: 620px)').matches ? 0.7 : 1
 }
 
 function frame() {
@@ -23,12 +30,12 @@ function frame() {
   const factor = mobileFactor()
 
   items.forEach((item) => {
-    const rect = item.el.getBoundingClientRect()
-    if (rect.bottom < -120 || rect.top > viewport + 120) return
+    const clip = item.clip.getBoundingClientRect()
+    if (clip.bottom < -80 || clip.top > viewport + 80) return
 
-    const shift = (rect.top + rect.height / 2 - viewport / 2) * item.speed * factor
-    const max = rect.height * 0.1
-    const y = Math.max(-max, Math.min(max, shift))
+    const shift = (clip.top + clip.height / 2 - viewport / 2) * item.speed * factor
+    const overflow = Math.max(24, (item.el.offsetHeight - item.clip.clientHeight) * 0.42)
+    const y = Math.max(-overflow, Math.min(overflow, shift))
     item.el.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0)`
   })
 }
@@ -69,7 +76,7 @@ function dropListeners() {
   mediaQuery = null
 }
 
-export function registerParallax(el: HTMLElement, speed = 0.24) {
+export function registerParallax(el: HTMLElement, speed = 0.18) {
   if (typeof window === 'undefined') return
 
   ensureListeners()
@@ -77,11 +84,12 @@ export function registerParallax(el: HTMLElement, speed = 0.24) {
   const existing = byElement.get(el)
   if (existing) {
     existing.speed = speed
+    existing.clip = findClip(el)
     requestTick()
     return
   }
 
-  const item: ParallaxItem = { el, speed }
+  const item: ParallaxItem = { el, clip: findClip(el), speed }
   items.add(item)
   byElement.set(el, item)
   el.classList.add('parallax-img')

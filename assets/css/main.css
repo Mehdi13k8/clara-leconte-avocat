@@ -92,7 +92,7 @@ p { margin: 0; }
 
 .home-hero { min-height: 100dvh; position: relative; display: flex; align-items: center; overflow: hidden; margin-top: -82px; background: var(--ink); color: var(--paper); }
 .home-hero__image, .home-hero__veil { position: absolute; inset: 0; width: 100%; height: 100%; }
-.home-hero__image { top: -24%; bottom: auto; height: 148%; object-fit: cover; object-position: center; will-change: transform; }
+.home-hero__image { top: -18%; bottom: auto; height: 136%; object-fit: cover; object-position: 50% 42%; will-change: transform; }
 .home-hero__veil { pointer-events: none; background: linear-gradient(96deg, rgb(17 23 32 / 91%) 0%, rgb(17 23 32 / 76%) 50%, rgb(17 23 32 / 22%) 100%); }
 .home-hero__inner { z-index: 1; padding-block: 140px 120px; }
 .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: rgb(255 255 255 / 8%); border: 1px solid rgb(255 255 255 / 16%); color: #e6d5b8; font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
@@ -121,7 +121,7 @@ p { margin: 0; }
 .expertise-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .expertise-card { position: relative; min-height: 420px; overflow: hidden; color: var(--paper); }
 .expertise-card__media { position: absolute; inset: 0; overflow: hidden; transition: transform 420ms ease; }
-.expertise-card img { position: absolute; left: 0; top: -22%; width: 100%; height: 144%; object-fit: cover; will-change: transform; }
+.expertise-card img { position: absolute; left: 0; top: -18%; width: 100%; height: 136%; object-fit: cover; will-change: transform; }
 .expertise-card__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(17 23 32 / 18%) 0%, rgb(17 23 32 / 78%) 100%); transition: background 220ms ease; }
 .expertise-card__body { position: relative; z-index: 1; display: flex; min-height: 420px; flex-direction: column; justify-content: flex-end; padding: 28px 24px; }
 .expertise-card h3 { margin: 8px 0 12px; font-size: 2rem; transition: color 160ms ease; }
@@ -130,9 +130,9 @@ p { margin: 0; }
 .domain-note { max-width: 780px; margin-top: 56px; padding-top: 28px; color: #aeb4bc; border-top: 1px solid rgb(255 255 255 / 12%); font-size: .88rem; }
 .domain-note a { color: var(--brass-light); border-bottom: 1px solid rgb(209 177 120 / 55%); transition: color 160ms ease, border-color 160ms ease; }
 
-.image-band { height: 390px; position: relative; margin: 0; overflow: hidden; background: #7e705e; }
+.image-band { height: 460px; position: relative; margin: 0; overflow: hidden; background: #7e705e; }
 .image-band::after { content: ''; position: absolute; inset: 0; background: rgb(22 28 36 / 22%); }
-.image-band img { position: absolute; left: 0; top: -22%; width: 100%; height: 144%; object-fit: cover; will-change: transform; }
+.image-band img { position: absolute; left: 0; top: -16%; width: 100%; height: 132%; object-fit: cover; object-position: 50% 50%; will-change: transform; }
 .image-band figcaption { position: absolute; z-index: 1; right: 32px; bottom: 24px; color: var(--white); font-size: .67rem; letter-spacing: .22em; text-transform: uppercase; }
 
 .portrait-section { padding: 118px 0; background: var(--paper); }
@@ -311,7 +311,7 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
   .scroll-cue { display: none; }
   .section-heading { margin-bottom: 38px; }
   .home-domains, .portrait-section, .lawyer-profile, .editorial-section, .fees-intro, .contact-page { padding-block: 76px; }
-  .image-band { height: 290px; }
+  .image-band { height: 340px; }
   .image-band figcaption { right: 18px; bottom: 16px; }
   .portrait-frame { min-height: 460px; margin-left: 10px; }
   .portrait-frame img, .lawyer-portrait img { height: 460px; }
