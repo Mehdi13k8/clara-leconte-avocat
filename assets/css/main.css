@@ -266,6 +266,8 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
 .contact-form { display: grid; gap: 25px; padding: 42px; background: var(--white); border-top: 3px solid var(--brass); box-shadow: 0 20px 55px rgb(29 37 48 / 7%); }
 .form-intro { margin-bottom: 4px; color: var(--muted); font-size: .8rem; }
 .field-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.field-pair > div { display: grid; gap: 7px; align-content: start; }
+.field-hint { margin: 0; color: var(--muted); font-size: .72rem; font-weight: 400; letter-spacing: .01em; text-transform: none; }
 .contact-form label:not(.consent) { display: grid; gap: 7px; color: #705226; font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 10px 0; color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid #bcb5a9; border-radius: 0; outline: 0; letter-spacing: normal; text-transform: none; }
 .contact-form textarea { min-height: 130px; resize: vertical; }

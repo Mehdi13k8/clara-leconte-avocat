@@ -10,8 +10,15 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
 const mapsEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(`${site.identity.address}, ${site.identity.postalCity}`)}&z=16&output=embed`
 
 const submitForm = async () => {
-  status.value = 'sending'
   errorMessage.value = ''
+
+  if (!isFrenchPhoneNumber(form.phone)) {
+    status.value = 'error'
+    errorMessage.value = 'Veuillez indiquer un numéro de téléphone français (ex. 06 12 34 56 78).'
+    return
+  }
+
+  status.value = 'sending'
 
   try {
     await $fetch('/api/contact', {
@@ -60,7 +67,21 @@ const submitForm = async () => {
           </div>
           <div class="field-pair">
             <label>Nom et prénom<input v-model="form.name" name="name" autocomplete="name" required></label>
-            <label>Téléphone<input v-model="form.phone" name="phone" type="tel" autocomplete="tel"></label>
+            <div>
+              <label>Téléphone
+                <input
+                  v-model="form.phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="06 12 34 56 78"
+                  maxlength="20"
+                  required
+                >
+              </label>
+              <p class="field-hint">Numéro français uniquement, mobile ou fixe.</p>
+            </div>
           </div>
           <label>Adresse e-mail<input v-model="form.email" name="email" type="email" autocomplete="email" required></label>
           <label>Objet de votre demande

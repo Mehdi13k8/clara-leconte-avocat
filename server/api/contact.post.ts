@@ -1,4 +1,5 @@
 import { EmailClient } from '@azure/communication-email'
+import { isFrenchPhoneNumber } from '~/utils/frenchPhone'
 
 interface ContactBody {
   name?: string
@@ -44,11 +45,14 @@ export default defineEventHandler(async (event) => {
   const subject = body.subject ? sanitizeHeaderValue(body.subject) : ''
   const message = body.message?.trim()
 
-  if (!name || !email || !subject || !message) {
+  if (!name || !phone || !email || !subject || !message) {
     throw createError({ statusCode: 400, statusMessage: 'Champs manquants.' })
   }
   if (!EMAIL_RE.test(email)) {
     throw createError({ statusCode: 400, statusMessage: 'Adresse e-mail invalide.' })
+  }
+  if (!isFrenchPhoneNumber(phone)) {
+    throw createError({ statusCode: 400, statusMessage: 'Veuillez indiquer un numéro de téléphone français.' })
   }
   if (name.length > 120 || phone.length > 40 || subject.length > 160 || message.length > MAX_MESSAGE_LENGTH) {
     throw createError({ statusCode: 400, statusMessage: 'Message trop long.' })
