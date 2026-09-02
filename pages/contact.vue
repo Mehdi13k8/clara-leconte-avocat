@@ -3,6 +3,7 @@ const site = useSiteContent()
 const form = reactive({ name: '', phone: '', email: '', subject: '', message: '', website: '', consent: false })
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const errorMessage = ref('')
+const { trackContactConversion } = useMarketing()
 
 usePageSeo('Contacter le cabinet à Marseille', 'Contactez Maître Clara Leconte, avocate au Barreau de Marseille. Réponse sous 48 heures ouvrées. Cabinet situé 23–25 rue Edmond Rostand, 13006 Marseille.', '/contact')
 
@@ -33,6 +34,7 @@ const submitForm = async () => {
       }
     })
 
+    trackContactConversion()
     Object.assign(form, { name: '', phone: '', email: '', subject: '', message: '', website: '', consent: false })
     status.value = 'success'
   } catch (error: any) {

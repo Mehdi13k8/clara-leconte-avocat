@@ -73,5 +73,6 @@ useHead({
     <NuxtPage />
     <SiteFooter />
     <QuickContact />
+    <TrackingConsent />
   </div>
 </template>

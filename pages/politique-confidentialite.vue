@@ -16,7 +16,9 @@ usePageSeo('Politique de confidentialité', 'Politique de confidentialité et tr
       <h2>Vos droits</h2>
       <p>Vous pouvez demander l’accès, la rectification ou l’effacement de vos données, ainsi que la limitation ou l’opposition au traitement lorsque ces droits sont applicables. Vous pouvez également saisir la CNIL si vous estimez que vos droits ne sont pas respectés.</p>
       <h2>Cookies et ressources externes</h2>
-      <p>Le site n’utilise pas de dispositif de suivi publicitaire. Les polices typographiques peuvent être chargées depuis les serveurs de Google Fonts, ce qui implique une connexion technique à ce service lors de l’affichage des pages. La page contact affiche une carte Google Maps ; ce chargement peut entraîner le dépôt de cookies par Google, selon les réglages de votre navigateur.</p>
+      <p>Avec votre accord uniquement, le site charge les balises Google Ads et Meta afin de mesurer l’efficacité des campagnes et les prises de contact. Ces services peuvent déposer des cookies et recevoir des informations techniques relatives à votre navigation. Le contenu du formulaire, votre nom, votre adresse e-mail et votre numéro de téléphone ne leur sont pas transmis.</p>
+      <p>Vous pouvez accepter ou refuser ces traceurs depuis le bandeau affiché lors de votre première visite. Votre choix est conservé pendant six mois. En cas de refus, aucune balise Google ou Meta n’est chargée.</p>
+      <p>Les polices typographiques peuvent être chargées depuis les serveurs de Google Fonts, ce qui implique une connexion technique à ce service lors de l’affichage des pages.</p>
     </article>
   </main>
 </template>

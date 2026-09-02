@@ -5,7 +5,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     acsConnectionString: '',
     acsSenderAddress: 'DoNotReply@novagentic.fr',
-    claraContactTo: 'c.leconte@avocatia.com'
+    claraContactTo: 'c.leconte@avocatia.com',
+    public: {
+      gaMeasurementId: '',
+      googleAdsId: 'AW-18410000471',
+      googleAdsContactConversion: 'AW-18410000471/1Q_CCKfF7-wcENegycpE',
+      metaPixelId: '1035859629161485'
+    }
   },
   app: {
     head: {
