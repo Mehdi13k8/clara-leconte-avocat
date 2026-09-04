@@ -7,8 +7,9 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div class="footer-identity">
-        <NuxtLink class="footer-logo" to="/" aria-label="Clara Leconte, avocate — accueil">
-          <img src="/images/logo-leconte.svg" alt="Clara Leconte, avocate" width="152" height="163">
+        <NuxtLink class="wordmark wordmark--light" to="/">
+          <span>Clara Leconte</span>
+          <small>Avocate</small>
         </NuxtLink>
         <p>{{ site.identity.bar }}. Accompagnement en responsabilité civile, droit de la famille et droit civil et commercial.</p>
       </div>
