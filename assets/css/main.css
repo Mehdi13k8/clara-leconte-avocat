@@ -50,6 +50,8 @@ p { margin: 0; }
 .kicker--light { color: var(--brass-light); }
 .roman { color: var(--brass); font-family: var(--serif); font-style: italic; }
 
+.brandmark { display: inline-flex; align-items: center; gap: 14px; }
+.brandmark__mark { width: 46px; height: auto; flex: none; }
 .wordmark { display: inline-flex; flex-direction: column; line-height: 1; text-transform: uppercase; }
 .wordmark span { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: .055em; transition: color 160ms ease; }
 .wordmark small { max-width: 16.5rem; margin-top: 6px; color: #896327; font-size: .58rem; font-weight: 600; letter-spacing: .16em; line-height: 1.35; transition: color 160ms ease; }
@@ -162,6 +164,7 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
 .contact-band p:not(.kicker) { max-width: 520px; margin-top: 10px; color: #aeb4bc; font-size: .92rem; }
 
 .site-footer { background: var(--ink); color: #aeb4bc; border-top: 1px solid rgb(255 255 255 / 9%); }
+.footer-logo img { width: 152px; height: auto; }
 .footer-grid { display: grid; grid-template-columns: 1.3fr .85fr 1.05fr 1.1fr; gap: 52px; padding-block: 58px 50px; border-bottom: 1px solid rgb(255 255 255 / 9%); }
 .footer-identity p { max-width: 250px; margin-top: 20px; font-size: .82rem; }
 .footer-label { margin-bottom: 17px; color: #747d88; font-size: .64rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
@@ -305,6 +308,8 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
 @media (max-width: 620px) {
   body { font-size: 16px; }
   .shell { width: calc(100% - 36px); }
+  .brandmark { gap: 11px; }
+  .brandmark__mark { width: 38px; }
   .wordmark span { font-size: 1.25rem; }
   .home-hero { min-height: 100dvh; margin-top: -72px; }
   .home-hero__inner { padding-block: 110px 100px; }
@@ -339,7 +344,9 @@ blockquote cite { display: block; margin-top: 12px; color: #8a672f; font-family:
 }
 
 .wordmark--light:hover span,
-.wordmark--light:focus-visible span { color: var(--brass-light); }
+.wordmark--light:focus-visible span,
+.brandmark:hover .wordmark--light > span,
+.brandmark:focus-visible .wordmark--light > span { color: var(--brass-light); }
 .desktop-nav > a:not(.button):hover,
 .desktop-nav > a:not(.button):focus-visible,
 .nav-dropdown:hover > a { color: var(--brass-light); }
