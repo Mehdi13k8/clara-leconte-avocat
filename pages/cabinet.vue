@@ -14,7 +14,7 @@ usePageSeo('Votre avocate à Marseille', 'Découvrez l’approche de Maître Cla
         </figure>
         <div class="lawyer-copy">
           <p class="kicker">Présentation</p>
-          <h2>{{ site.cabinet.quote }}</h2>
+          <h2>{{ site.cabinet.bioTitle }}</h2>
           <p v-for="paragraph in site.cabinet.bio" :key="paragraph">{{ paragraph }}</p>
           <blockquote>«&nbsp;{{ site.cabinet.oath }}&nbsp;»<cite>Serment d’avocat</cite></blockquote>
           <dl class="cabinet-facts" aria-label="Repères du cabinet">

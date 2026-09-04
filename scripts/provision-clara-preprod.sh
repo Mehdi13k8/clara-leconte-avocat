@@ -94,6 +94,17 @@ else
   echo "ATTENTION : pas encore d'empreinte de certificat. Relancez après vérification du DNS." >&2
 fi
 
+echo "=== App Settings pour le port du sidecar (références sitecontainers) ==="
+# Azure sitecontainers: environmentVariables[].value is an App Setting *name*,
+# not a literal. Without these, NITRO_PORT resolves empty → listen :3000 →
+# EADDRINUSE → Azure cancels startup for the whole shared Web App.
+az webapp config appsettings set -g "$RESOURCE_GROUP" -n "$APP_NAME" --settings \
+  CLARA_PREPROD_PORT=3004 \
+  CLARA_PREPROD_NITRO_PORT=3004 \
+  CLARA_PREPROD_NITRO_HOST=0.0.0.0 \
+  --output none
+echo "CLARA_PREPROD_PORT / NITRO_PORT / NITRO_HOST OK"
+
 echo
 echo "Reste à faire :"
 echo "  # Actions → « Deploy Clara preprod » → Run workflow"
