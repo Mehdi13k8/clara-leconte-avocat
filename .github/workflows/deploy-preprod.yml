@@ -21,6 +21,13 @@ name: Deploy Clara preprod
 #     build argument would make the preprod image differ from the production
 #     one — defeating the purpose. See proxy/nginx.conf in Novagentic_group.
 #
+# Azure sitecontainers quirk: `environmentVariables[].value` is NOT a literal.
+# It is the *name* of an App Setting whose value is resolved at runtime. A
+# literal `"3004"` resolves to empty (no such App Setting) → Nitro falls
+# through to PORT/default 3000 → EADDRINUSE → Azure cancels startup for the
+# whole shared Web App. App Settings CLARA_PREPROD_* must exist on the Web App
+# (set once; see scripts/provision-clara-preprod.sh).
+#
 # Does NOT tag `:latest`. That tag is production, and deploy.yml owns it.
 #
 # One-time Azure/DNS wiring: scripts/provision-clara-preprod.sh
@@ -83,6 +90,6 @@ jobs:
           SUB_ID=$(az account show --query id -o tsv)
           az rest --method PUT \
             --url "https://management.azure.com/subscriptions/$SUB_ID/resourceGroups/Novagentic_group/providers/Microsoft.Web/sites/Novagentic/sitecontainers/clara-preprod?api-version=2023-12-01" \
-            --body '{"properties":{"image":"ghcr.io/mehdi13k8/clara-leconte-avocat:${{ github.sha }}","isMain":false,"targetPort":3004,"environmentVariables":[{"name":"NITRO_PORT","value":"3004"}]}}' \
+            --body '{"properties":{"image":"ghcr.io/mehdi13k8/clara-leconte-avocat:${{ github.sha }}","isMain":false,"targetPort":3004,"inheritAppSettingsAndConnectionStrings":false,"environmentVariables":[{"name":"NITRO_PORT","value":"CLARA_PREPROD_NITRO_PORT"},{"name":"PORT","value":"CLARA_PREPROD_PORT"},{"name":"NITRO_HOST","value":"CLARA_PREPROD_NITRO_HOST"}]}}' \
             --output none
           echo "clara-preprod → ghcr.io/mehdi13k8/clara-leconte-avocat:${{ github.sha }} (:3004)"

@@ -68,8 +68,8 @@ usePageSeo('Avocate à Marseille', 'Maître Clara Leconte, avocate au Barreau de
         </div>
         <div class="portrait-copy">
           <p class="kicker">Votre avocate à Marseille</p>
-          <h2>Maître<br>Clara Leconte</h2>
-          <p v-for="paragraph in site.cabinet.paragraphs" :key="paragraph">{{ paragraph }}</p>
+          <h2>{{ site.cabinet.bioTitle }}</h2>
+          <p v-for="paragraph in site.cabinet.bio" :key="paragraph">{{ paragraph }}</p>
           <blockquote>«&nbsp;{{ site.cabinet.oath }}&nbsp;»<cite>Serment d’avocat</cite></blockquote>
           <dl class="cabinet-facts" aria-label="Repères du cabinet">
             <div v-for="stat in site.stats" :key="stat.label">
