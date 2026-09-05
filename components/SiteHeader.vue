@@ -38,9 +38,12 @@ const domainActive = computed(() =>
 <template>
   <header class="site-header" :class="{ 'site-header--overlay': overlay && !open }">
     <div class="shell header-inner">
-      <NuxtLink class="wordmark wordmark--light" to="/" aria-label="Clara Leconte Avocate — accueil">
-        <span>Clara Leconte</span>
-        <small>Avocate au Barreau de Marseille</small>
+      <NuxtLink class="brandmark" to="/" aria-label="Clara Leconte Avocate — accueil">
+        <img class="brandmark__mark" src="/images/logo-marque.svg" alt="" width="46" height="46">
+        <span class="wordmark wordmark--light">
+          <span>Clara Leconte</span>
+          <small>Avocate au Barreau de Marseille</small>
+        </span>
       </NuxtLink>
 
       <nav class="desktop-nav" aria-label="Navigation principale">
