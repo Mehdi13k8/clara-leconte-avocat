@@ -1,20 +1,6 @@
 import { EmailClient } from '@azure/communication-email'
-import { isFrenchPhoneNumber } from '~/utils/frenchPhone'
 import { checkRateLimit, clientIpFromHeaders } from '~/utils/contactRateLimit'
-
-interface ContactBody {
-  name?: string
-  phone?: string
-  email?: string
-  subject?: string
-  message?: string
-  website?: string
-}
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const HEADER_VALUE_RE = /[\r\n]+/g
-const sanitizeHeaderValue = (value: string) => value.replace(HEADER_VALUE_RE, ' ').trim()
-const MAX_MESSAGE_LENGTH = 5000
+import { isHoneypotFilled, validateContact, type ContactBody } from '~/utils/contactForm'
 
 /** Horodatages de soumission par IP (processus). Suffisant derrière Azure :
  * une seule instance sert le site ; un redémarrage vide la Map. */
@@ -37,32 +23,21 @@ function assertContactRateLimit(event: Parameters<typeof getRequestIP>[0]) {
 }
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<ContactBody>(event)
+  // `readBody` rend `undefined` pour un corps vide : `validateContact` le
+  // refuse en 400 au lieu de laisser tomber la route en 500.
+  const body = await readBody<ContactBody | undefined>(event)
 
   // Pot de miel rempli : on répond comme à un humain, sans rien envoyer —
   // et sans consommer le quota (même règle que Novagentic).
-  if (body.website) return { ok: true }
+  if (isHoneypotFilled(body)) return { ok: true }
 
   assertContactRateLimit(event)
 
-  const name = body.name ? sanitizeHeaderValue(body.name) : ''
-  const phone = body.phone ? sanitizeHeaderValue(body.phone) : ''
-  const email = body.email ? sanitizeHeaderValue(body.email) : ''
-  const subject = body.subject ? sanitizeHeaderValue(body.subject) : ''
-  const message = body.message?.trim()
-
-  if (!name || !phone || !email || !subject || !message) {
-    throw createError({ statusCode: 400, statusMessage: 'Champs manquants.' })
+  const result = validateContact(body)
+  if (!result.ok) {
+    throw createError({ statusCode: 400, statusMessage: result.statusMessage })
   }
-  if (!EMAIL_RE.test(email)) {
-    throw createError({ statusCode: 400, statusMessage: 'Adresse e-mail invalide.' })
-  }
-  if (!isFrenchPhoneNumber(phone)) {
-    throw createError({ statusCode: 400, statusMessage: 'Veuillez indiquer un numéro de téléphone français.' })
-  }
-  if (name.length > 120 || phone.length > 40 || subject.length > 160 || message.length > MAX_MESSAGE_LENGTH) {
-    throw createError({ statusCode: 400, statusMessage: 'Message trop long.' })
-  }
+  const { name, phone, email, subject, message } = result.fields
 
   const config = useRuntimeConfig()
   if (!config.acsConnectionString || !config.acsSenderAddress || !config.claraContactTo) {
